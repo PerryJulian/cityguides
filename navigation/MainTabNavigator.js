@@ -7,10 +7,9 @@ import {
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 import EventsScreen from '../screens/EventsScreen'
 import RestaurantsScreen from '../screens/RestaurantsScreen'
+import ParksScreen from '../screens/ParksScreen'
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -49,7 +48,7 @@ RestaurantStack.navigationOptions = {
 };
 
 const AdventureStack = createStackNavigator({
-  Links: LinksScreen,
+  Parks: ParksScreen,
 });
 
 AdventureStack.navigationOptions = {
