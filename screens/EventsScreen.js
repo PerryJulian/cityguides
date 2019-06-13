@@ -5,19 +5,15 @@ import { Events } from '../components/Events'
 export default function EventsScreen() {
     return (
       <ScrollView style={styles.container}>
-        {/**
-         * Go ahead and delete ExpoLinksView and replace it with your content;
-         * we just wanted to provide you with some helpful links.
-         */}
         <Events />
       </ScrollView>
     );
   }
-  
+
   EventsScreen.navigationOptions = {
     title: 'Events',
   };
-  
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,

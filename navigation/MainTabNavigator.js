@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import EventsScreen from '../screens/EventsScreen'
+import RestaurantsScreen from '../screens/RestaurantsScreen'
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -30,7 +31,7 @@ HomeStack.navigationOptions = {
 };
 
 const RestaurantStack = createStackNavigator({
-  Restaurants: HomeScreen,
+  Restaurants: RestaurantsScreen,
 });
 
 RestaurantStack.navigationOptions = {

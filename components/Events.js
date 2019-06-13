@@ -15,10 +15,13 @@ export class Events extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        backgroundColor: '#fff'
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+        alignItems: 'stretch'
     },
     comingSoonText: {
-        fontStyle: 'italic'
+        fontStyle: 'italic',
+        textAlign: 'center'
     }
 })
