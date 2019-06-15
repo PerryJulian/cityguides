@@ -33,7 +33,7 @@ export class Restaurants extends React.Component {
                 ]
             },
             {
-                title: 'Chinese', 
+                title: 'Chinese',
                 data: [
                     {
                         "name": "Peter Change Arlington",
@@ -45,7 +45,7 @@ export class Restaurants extends React.Component {
                 ]
             },
             {
-                title: 'Italian', 
+                title: 'Italian',
                 data: [
                     {
                         "name": "The Italian Store",
@@ -64,7 +64,7 @@ export class Restaurants extends React.Component {
                 ]
             },
             {
-                title: 'Mexican', 
+                title: 'Mexican',
                 data: [
                     {
                         "name": "District Taco",
@@ -137,14 +137,14 @@ export class Restaurants extends React.Component {
         }
 
         if (item.website) {
-            website = 
+            website =
             <Touchable onPress={() => this._handlePress(item.website)}>
                 <Text style={styles.website}>
                     Website
                 </Text>
             </Touchable>
         }
-        
+
      return (
          <View style={styles.row}>
              <View>

@@ -1,12 +1,65 @@
 import React from 'react';
 import { FlatList, Image, StyleSheet, Text, View, Alert } from 'react-native';
-import { 
+// import { Park } from '../components/Park'
+import {
     MaterialIcons,
-    MaterialCommunityIcons 
+    MaterialCommunityIcons
 } from '@expo/vector-icons';
 
 const iconSize = 35
+const iconKey =[
+  {
+    "name": "parking",
+    "className": "parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "water",
+    "className": "water-pump",
+    "color": "blue",
+    "alertText": "Has Drinking Fountain"
+  },
+  {
+    "name": "parking",
+    "className": "local-parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "parking",
+    "className": "local-parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "parking",
+    "className": "local-parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "parking",
+    "className": "local-parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "parking",
+    "className": "local-parking",
+    "color": "blue",
+    "alertText": "Has Public Parking"
+  },
+  {
+    "name": "basketball",
+    "className": "basketball",
+    "color": "orange",
+    "alertText": "Has Basketball Courts"
+  },
+]
+
 export class ParksList extends React.Component {
+
 
   render() {
     const parks = [
@@ -57,30 +110,6 @@ export class ParksList extends React.Component {
     return (
       <View style={styles.separator}></View>
     )
-  }
-
-  _getParkingIcon = () => {
-      return (
-          <MaterialIcons
-            name='local-parking'
-            color='blue'
-            style={styles.detailsItem}
-            size={iconSize}
-            onPress={() => this._handlePress("Has Public Parking")}
-            />
-      )
-  }
-
-  _getWaterIcon = () => {
-      return (
-          <MaterialCommunityIcons
-            name='water-pump'
-            color='blue'
-            style={styles.detailsItem}
-            size={iconSize}
-            onPress={() => this._handlePress("Has Drinking Fountain")}
-          />
-      )
   }
 
   _getBasketballIcon = () => {
@@ -167,45 +196,118 @@ export class ParksList extends React.Component {
     )
   }
 
-  _handlePress = (message) => {
-      Alert.alert(message)
+  _getIcon = (props) => {
+    // console.log(props)
+    // this.message = props.alertText
+    return (
+      <MaterialCommunityIcons
+        name={props.className}
+        color={props.color}
+        style={styles.detailsItem}
+        size={iconSize}
+        onPress={this._handlePress}
+      />
+    )
+  }
+
+  _handlePress = () => {
+      Alert.alert(this.message)
+  }
+
+  _detailsRenderer = ({item} ,field) => {
+
   }
 
   _renderItem = ({ item }) => {
-      let details = {}
-      item.waterFountain ? details.waterFountain=this._getWaterIcon() : details.waterFountain = null
-      item.parking ? details.parking=this._getParkingIcon() : details.parking = null
-      item.picnic ? details.picnic=this._getPinicIcon() : details.picnic = null
-      item.basketball ? details.basketball=this._getBasketballIcon() : details.basketball = null
-      item.field ? details.field=this._getFieldIcon() : details.field = null
-      item.trail ? details.trail=this._getTrailIcon() : details.trail = null
-      item.pond ? details.pond=this._getPondIcon() : details.pond = null
-      item.garden ? details.garden=this._getGardenIcon() : details.garden = null
-      item.restroom ? details.restroom=this._getRestroomIcon() : details.restroom = null
+      let details = { }
+      let test = iconKey.find(key => key.name == 'basketball')
+      // console.log(test)
+      item.parking ? details.parking=<Icon props={iconKey.find(key => key.name == 'parking')}/> : details.parking = null
+      // item.picnic ? details.picnic=this._getIcon(props=iconKey.find(key => key.name == 'picnic')): details.picnic = null
+      item.basketball ? details.basketball=<Icon props={iconKey.find(key => key.name == 'basketball')}/> : details.basketball = null
+      // item.field ? details.field=this._getIcon(props=iconKey.find(key => key.name == 'field')) : details.field = null
+      // item.trail ? details.trail=this._getIcon(props=iconKey.find(key => key.name == 'trail')) : details.trail = null
+      // item.pond ? details.pond=this._getIcon(props=iconKey.find(key => key.name == 'pond')) : details.pond = null
+      // item.garden ? details.garden=this._getIcon(props=iconKey.find(key => key.name == 'garden')) : details.garden = null
+      // item.restroom ? details.restroom=this._getIcon(props=iconKey.find(key => key.name == 'restroom')) : details.restroom = null
+    // item.waterFountain ? details.waterFountain = this._getIcon(props = iconKey.find(key => key.name == 'water')) : details.waterFountain = null
     return (
-        <View>
-            <View>
-                <Text style={styles.name}>
-                    {item.name}
-                </Text>
-                <Text style={styles.address}>
-                    {item.address}
-                </Text>
-            </View>
-            <View style={styles.details}>
-                {details.parking}
-                {details.waterFountain}
-                {details.picnic}
-                {details.basketball}
-                {details.field}
-                {details.trail}
-                {details.pond}
-                {details.garden}
-                {details.restroom}
-            </View>
-        </View>
+      <View>
+        <Park park={item} info={details}/>
+      </View>
+        // <View>
+        //     <View style={styles.details}>
+        //         {details.parking}
+        //         {details.waterFountain}
+        //         {details.picnic}
+        //         {details.basketball}
+        //         {details.field}
+        //         {details.trail}
+        //         {details.pond}
+        //         {details.garden}
+        //         {details.restroom}
+        //     </View>
+        // </View>
     )
   };
+}
+
+class Icon extends React.Component {
+  constructor(props) {
+    super(props)
+    const {className, color, alertText} = props.props
+    this.state = {
+      className,
+      color,
+      alertText
+    }
+    // console.log(props)
+    console.log(this.state)
+  }
+
+  _handlePress = () => {
+    Alert.alert(this.state.alertMes)
+  }
+
+  render() {
+    const {className, color, alert} = this.state
+    // console.log(this.state)
+    return (
+      // <Text>The</Text>
+      <MaterialCommunityIcons
+        name={className}
+        color={color}
+        style={styles.detailsItem}
+        size={iconSize}
+        // onPress={(alertText) => this._handlePress}
+      />
+    )
+  }
+}
+
+const Park = props => {
+  return <View>
+    <View>
+      <Text style={styles.name}>
+        {props.park.name}
+      </Text>
+      <Text style={styles.address}>
+        {props.park.address}
+      </Text>
+      <ParkInfo info={props.info}/>
+    </View>
+  </View>
+}
+
+const ParkInfo = props => {
+  // console.log(props.info)
+  return (
+    <View style={styles.details}>
+      {props.info.waterFountain}
+      {props.info.parking}
+      {props.info.basketball}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
