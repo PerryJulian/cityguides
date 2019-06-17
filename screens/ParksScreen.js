@@ -11,8 +11,5 @@ export default function ParksScreen() {
 }
 
 ParksScreen.navigationOptions = {
-  title: 'Parks & Recreation',
-  headerRight: (
-    <ParkInfoKey/>
-  )
+  title: 'Parks & Recreation'
 };

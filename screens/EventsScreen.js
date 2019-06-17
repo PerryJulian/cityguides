@@ -18,6 +18,6 @@ export default function EventsScreen() {
     container: {
       flex: 1,
       paddingTop: 15,
-      backgroundColor: '#fff',
+      backgroundColor: '#013239',
     },
   });
