@@ -9,10 +9,7 @@ import ParkData from '../data/ParkData'
 const iconSize = 35
 
 export class ParksList extends React.Component {
-
-
   render() {
-
     return (
       <FlatList
         data={ParkData}
@@ -55,7 +52,7 @@ export class ParksList extends React.Component {
       item.pond ? details.pond = <Icon iconAttr = {IconData.find(key => key.name == 'pond')} /> : details.pond = null
       item.garden ? details.garden = <Icon iconAttr = {IconData.find(key => key.name == 'garden')} /> : details.garden = null
       item.restroom ? details.restroom = <Icon iconAttr = {IconData.find(key => key.name == 'restroom')} /> : details.restroom = null
-    item.waterFountain ? details.waterFountain = <Icon iconAttr = {IconData.find(key => key.name == 'waterFountain')} /> : details.waterFountain = null
+      item.waterFountain ? details.waterFountain = <Icon iconAttr = {IconData.find(key => key.name == 'waterFountain')} /> : details.waterFountain = null
     return (
       <View>
         <Park park={item} info={details}/>
