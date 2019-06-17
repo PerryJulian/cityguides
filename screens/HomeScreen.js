@@ -15,7 +15,7 @@ export default function HomeScreen() {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-          <Image 
+          <Image
             source={require('../assets/images/arlington.jpg')}
             style={styles.welcomeImage}
           />
